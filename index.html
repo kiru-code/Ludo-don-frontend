@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ludo Don</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Ludo Don 🎲</h1>
+    <div id="game">
+      <p>Welcome, <span id="player-name">Player</span></p>
+      <p>Wallet: ₹<span id="wallet-balance">0</span></p>
+      <button onclick="rollDice()">🎲 Roll Dice</button>
+      <p id="dice-result"></p>
+    </div>
+
+    <div id="admin">
+      <h2>Admin Panel 🔐</h2>
+      <input type="text" id="admin-username" placeholder="Admin Username" />
+      <input type="password" id="admin-password" placeholder="Password" />
+      <button onclick="adminLogin()">Login</button>
+
+      <div id="admin-actions" style="display:none;">
+        <input type="text" id="wallet-user" placeholder="Username" />
+        <input type="number" id="wallet-amount" placeholder="Amount ₹" />
+        <button onclick="addMoney()">Add Money</button>
+        <br /><br />
+        <label>Bot Mode: </label>
+        <select id="bot-mode" onchange="toggleBot(this.value)">
+          <option value="true">Enabled</option>
+          <option value="false">Disabled</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
