@@ -1,4 +1,4 @@
-const BACKEND_URL = "https://ludo-don-backend.onrender.com";
+const BACKEND_URL = "https://ludo-don-backend-4s2i.onrender.com";
 
 const playerName = "player1";
 document.getElementById("player-name").textContent = playerName;
