@@ -32,7 +32,24 @@ async function adminLogin() {
     alert("Invalid credentials");
   }
 }
+async function playerLogin() {
+  const phone = document.getElementById("phone").value;
+  const password = document.getElementById("password").value;
 
+  const res = await fetch(`${BACKEND_URL}/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ phone, password })
+  });
+
+  const data = await res.json();
+  if (data.success) {
+    document.getElementById("login-status").textContent = "Login successful!";
+    // Show wallet / game UI here
+  } else {
+    document.getElementById("login-status").textContent = "Login failed!";
+  }
+}
 async function addMoney() {
   const username = document.getElementById("wallet-user").value;
   const amount = parseInt(document.getElementById("wallet-amount").value);
