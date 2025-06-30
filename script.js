@@ -58,6 +58,60 @@ async function addMoney() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, amount }),
   });
+  const BACKEND_URL = "https://ludo-don-backend-4s2i.onrender.com"; // replace with your backend
+
+async function playerLogin() {
+  const phone = document.getElementById("phone").value;
+  const password = document.getElementById("password").value;
+
+  try {
+    const res = await fetch(`${BACKEND_URL}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ phone, password }),
+    });
+
+    const data = await res.json();
+    if (data.success) {
+      alert("Player login successful!");
+      // You can now show wallet, game UI, etc.
+    } else {
+      alert("Login failed! Check number or password.");
+    }
+  } catch (err) {
+    console.error("Login error:", err);
+    alert("Login error — please check connection.");
+  }
+}
+const BACKEND_URL = "https://ludo-don-backend-4s2i.onrender.com"; // replace with your backend
+
+async function playerLogin() {
+  const phone = document.getElementById("phone").value;
+  const password = document.getElementById("password").value;
+
+  try {
+    const res = await fetch(`${BACKEND_URL}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ phone, password }),
+    });
+
+    const data = await res.json();
+    if (data.success) {
+      alert("Player login successful!");
+      // You can now show wallet, game UI, etc.
+    } else {
+      alert("Login failed! Check number or password.");
+    }
+  } catch (err) {
+    console.error("Login error:", err);
+    alert("Login error — please check connection.");
+  }
+}
   const data = await res.json();
   alert("Money added. New balance: ₹" + data.balance);
 }
